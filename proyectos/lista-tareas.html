@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lista de tareas — Proyecto</title>
   <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../img/logo.jpeg" type="image/jpeg">
   <link rel="stylesheet" href="proyecto.css" />
 </head>
 <body>
@@ -26,12 +27,20 @@
   <section class="project-hero">
     <div class="container project-hero-inner">
       <div class="project-hero-text">
-        <h2>Sistema de Turnos Online</h2>
-        <p class="subtitle">Aplicación web para gestionar reservas en instituciones.</p>
+        <h2>Lista de Tareas</h2>
+        <p class="subtitle">Aplicación web para gestionar tareas diarias.</p>
+
+        <div class="author">
+          <img src="../img/foto1.jpeg" alt="Matías Rodríguez" onerror="this.style.display='none'">
+          <div>
+            <div class="name">Matías Rodríguez</div>
+            <div class="role">Programador Jr · Estudiante de Tecnicatura en Desarrollo de Software</div>
+          </div>
+        </div>
 
         <div class="project-cta">
-          <a href="#" class="btn-live">Ver sitio</a>
-          <a href="#" class="btn-github">Ver en GitHub</a>
+          <a href="#" class="btn-live" target="_blank" rel="noopener">Ver sitio</a>
+          <a href="https://github.com/MatiasRodriguez21/lista-tareas" class="btn-github" target="_blank" rel="noopener">Ver en GitHub</a>
         </div>
 
         <ul class="project-meta">
@@ -43,7 +52,7 @@
       </div>
 
       <div class="project-hero-cover">
-        <img src="../img/turnos/cover.jpg" alt="Portada Sistema de Turnos" onerror="this.style.display='none'">
+        <img src="../img/lista-tareas/cover.jpg" alt="Portada Lista de Tareas" onerror="this.style.display='none'">
       </div>
     </div>
   </section>
@@ -52,50 +61,55 @@
     <section class="project-section">
       <h3>Descripción</h3>
       <p>
-        Plataforma para gestionar turnos de manera online con creación de usuarios,
-        calendarios, recordatorios y panel de administración. Permite definir
-        disponibilidad por profesional/servicio y evitar solapamientos.
+        Este proyecto es una aplicación de lista de tareas que permite a los usuarios
+        agregar, eliminar y gestionar sus tareas diarias de manera eficiente.
       </p>
     </section>
 
     <section class="project-section">
       <h3>Funcionalidades principales</h3>
       <ul class="bullets">
-        <li>Registro e inicio de sesión con validaciones.</li>
-        <li>Gestión de agenda por profesional y por servicio.</li>
-        <li>Reservas, cancelaciones y reprogramaciones.</li>
-        <li>Dashboard con métricas y búsqueda de turnos.</li>
-        <li>Notificaciones (email) para confirmación y recordatorio.</li>
+        <li><strong>Agregar Tareas:</strong> incorporar nuevas tareas a la lista.</li>
+        <li><strong>Eliminar Tareas:</strong> quitar tareas completadas o no deseadas.</li>
+        <li><strong>Modo Nocturno:</strong> interfaz adecuada para entornos oscuros.</li>
+        <li><strong>Interfaz Intuitiva:</strong> diseño simple y fácil de usar.</li>
       </ul>
     </section>
 
     <section class="project-section">
       <h3>Tecnologías</h3>
       <div class="tags">
-        <span class="tag">FastAPI</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">React</span>
-        <span class="tag">TypeScript</span>
-        <span class="tag">Docker (dev)</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
       </div>
+    </section>
+
+    <section class="project-section">
+      <h3>Requisitos</h3>
+      <ul class="bullets">
+        <li>Node.js</li>
+        <li>Express</li>
+      </ul>
     </section>
 
     <section class="project-section two-col">
       <div>
         <h3>Mi aporte</h3>
         <ul class="bullets">
-          <li>Diseño de esquema de base de datos y endpoints REST.</li>
-          <li>UI (formularios, calendario, tablas) en React.</li>
-          <li>Autenticación y autorización por roles.</li>
-          <li>Deploy de ambiente demo (Docker Compose).</li>
+          <li>Diseño de UI simple y accesible con modo nocturno.</li>
+          <li>Rutas básicas en Express para gestión de tareas (si se usa backend).</li>
+          <li>Organización del código y buenas prácticas de Git.</li>
         </ul>
       </div>
       <div>
         <h3>Aprendizajes</h3>
         <ul class="bullets">
-          <li>Reglas de solapamiento de turnos.</li>
-          <li>Manejo de formularios complejos en React.</li>
-          <li>Buenas prácticas en FastAPI.</li>
+          <li>Enrutamiento y middleware en Express.</li>
+          <li>Patrones simples de CRUD para tareas.</li>
+          <li>Optimización de UX con foco en claridad y velocidad.</li>
         </ul>
       </div>
     </section>
@@ -103,10 +117,9 @@
     <section class="project-section">
       <h3>Galería</h3>
       <div class="gallery">
-        <figure><img src="../img/turnos/1.jpg" alt="Listado de turnos" /></figure>
-        <figure><img src="../img/turnos/2.jpg" alt="Calendario de turnos" /></figure>
-        <figure><img src="../img/turnos/3.jpg" alt="Detalle de reserva" /></figure>
-        <figure><img src="../img/turnos/4.jpg" alt="Panel de administración" /></figure>
+        <figure><img src="../img/lista-tareas/1.jpg" alt="Listado de tareas" /></figure>
+        <figure><img src="../img/lista-tareas/2.jpg" alt="Modo nocturno activado" /></figure>
+        <figure><img src="../img/lista-tareas/3.jpg" alt="Interfaz de creación/eliminación" /></figure>
       </div>
     </section>
   </main>

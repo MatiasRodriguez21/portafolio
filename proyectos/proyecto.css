@@ -21,7 +21,6 @@
   overflow: hidden;
 }
 .project-hero::after{
-  /* leve textura/velo para mejorar legibilidad */
   content:"";
   position:absolute; inset:0;
   background: radial-gradient(1200px 400px at -10% -20%, rgba(255,255,255,.12), transparent 60%),
@@ -39,7 +38,6 @@
 }
 
 .project-hero-text{
-  /* glassmorphism suave para dar contraste al texto */
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.18);
   border-radius: 16px;
@@ -48,17 +46,38 @@
   box-shadow: 0 10px 30px rgba(0,0,0,.18);
 }
 
-/* >>> TÍTULO Y SUBTÍTULO EN BLANCO <<< */
+/* TÍTULO Y SUBTÍTULO EN BLANCO */
 .project-hero h2{
-  color: #fff;                       /* fuerza blanco */
+  color: #fff;
   font-size: clamp(1.9rem, 4vw, 2.6rem);
   margin-bottom: .35rem;
   text-shadow: 1px 2px 4px rgba(0,0,0,.35);
 }
 .project-hero .subtitle{
-  color: #fff;                       /* blanco explícito */
+  color: #fff;
   opacity:.95;
+  margin-bottom: .8rem;
+}
+
+/* ===== AUTHOR BLOCK (tu foto) ===== */
+.author{
+  display:flex;
+  align-items:center;
+  gap:.8rem;
   margin-bottom: .9rem;
+}
+.author img{
+  width:56px; height:56px; object-fit:cover;
+  border-radius:999px;
+  border:2px solid rgba(255,255,255,.55);
+  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+  background:#e9ecef;
+}
+.author .name{
+  color:#fff; font-weight:700; line-height:1.1;
+}
+.author .role{
+  color:#fff; opacity:.9; font-size:.92rem; line-height:1.2;
 }
 
 /* CTAs */
@@ -81,7 +100,7 @@
 .project-cta .btn-github{ background: var(--jet); color:#fff; }
 .project-cta .btn-github:hover{ background: var(--indigo-dye); transform: translateY(-2px); }
 
-/* Meta en chips */
+/* Meta chips */
 .project-meta{
   list-style:none;
   display:flex; flex-wrap:wrap; gap:.5rem .6rem;
@@ -113,7 +132,6 @@
   padding-bottom: 3rem;
 }
 
-/* Secciones como “cards” blancas para contraste */
 .project-section{
   background:#fff;
   border:1px solid rgba(0,0,0,.05);
@@ -134,21 +152,18 @@
   width:4px; border-radius:6px;
   background: linear-gradient(180deg, var(--caribbean-current), var(--indigo-dye));
 }
-
 .project-section p{ color: var(--jet); line-height:1.75; }
 
-/* Listas */
 .bullets{ padding-left: 1.15rem; }
 .bullets li{ margin:.38rem 0; line-height:1.6; }
 
-/* Dos columnas */
 .two-col{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
 }
 
-/* Tags (tecnologías) */
+/* Tags */
 .tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
 .tag{
   --ring: rgba(40,75,99,.18);
@@ -163,7 +178,7 @@
 }
 .tag:hover{ transform: translateY(-1px); }
 
-/* ===== GALERÍA ===== */
+/* Galería */
 .gallery{
   --size: 260px;
   display:grid;
@@ -186,7 +201,7 @@
   box-shadow: 0 10px 24px rgba(0,0,0,.12);
 }
 
-/* ===== LIGHTBOX ===== */
+/* Lightbox */
 .lightbox{
   position: fixed; inset:0;
   background: rgba(0,0,0,.8);
@@ -194,14 +209,12 @@
   z-index: 2000;
 }
 .lightbox.active{ display:flex; }
-
 .lb-img{
   max-width: 92%;
   max-height: 82vh;
   border-radius: 12px;
   box-shadow: 0 20px 50px rgba(0,0,0,.35);
 }
-
 .lb-close, .lb-prev, .lb-next{
   position:absolute;
   background: rgba(255,255,255,.15);
@@ -216,13 +229,13 @@
 .lb-next { right: 22px; }
 .lb-prev:hover, .lb-next:hover, .lb-close:hover{ background: rgba(255,255,255,.25); transform: translateY(-1px); }
 
-/* ===== ACCESIBILIDAD FOCUS ===== */
+/* Focus accesible */
 a:focus-visible, button:focus-visible{
   outline: 3px solid var(--caribbean-current);
   outline-offset: 2px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* Responsive */
 @media (max-width: 1000px){
   .project-hero-inner{ grid-template-columns: 1fr; }
   .project-hero-cover{ order: -1; }

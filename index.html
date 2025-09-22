@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Matías Rodríguez</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ================= HEADER ================= -->
+  <header id="navbar">
+    <nav class="container">
+      <h1>Matías Rodríguez</h1>
+      <ul>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h2>
+          <span class="greeting">¡Hola! Soy</span>
+          <span class="name">Matías Rodríguez</span>
+        </h2>
+        <p id="typing"></p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary">📂 Ver Proyectos</a>
+          <a href="Rodriguez_Matias_CV.pdf" class="btn-secondary" target="_blank">📄 Descargar CV</a>
+          <a href="https://www.linkedin.com/in/matirodriguez23/" class="btn-linkedin" target="_blank">🔗 LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <img src="img/perfil.jpg" alt="Foto de Matías Rodríguez"
+             onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';">
+        <div id="avatar-fallback" class="avatar-fallback">MR</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE MÍ ================= -->
+  <section id="about" class="container">
+    <h2>Sobre mí</h2>
+    <p>
+      Tengo 24 años y actualmente curso la <strong>Tecnicatura en Desarrollo de Software</strong> en la Universidad Politécnica de Córdoba. 
+      Cuento con experiencia en proyectos académicos y personales, además de haber trabajado en roles que me permitieron 
+      desarrollar habilidades de <strong>liderazgo, soporte técnico y gestión de equipos</strong>.
+    </p>
+    <p>
+      Mi objetivo profesional es crecer como <strong>Desarrollador Full Stack</strong>, contribuyendo a proyectos que 
+      combinen innovación tecnológica con impacto real en las personas. Me motiva el aprendizaje constante y la posibilidad 
+      de colaborar con equipos multidisciplinarios.
+    </p>
+
+    <div class="skills">
+      <div>
+        <h3>Frontend</h3>
+        <ul>
+          <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>TypeScript</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Backend</h3>
+        <ul>
+          <li>Node.js</li><li>Express</li><li>PHP</li><li>Python</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Bases de datos</h3>
+        <ul>
+          <li>MySQL</li><li>MongoDB</li><li>PostgreSQL</li><li>SQL Server</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Habilidades blandas</h3>
+        <ul>
+          <li>Trabajo en equipo</li><li>Proactividad</li><li>Gestión del tiempo</li><li>Resolución de problemas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROYECTOS ================= -->
+  <section id="projects" class="container">
+    <h2>Proyectos</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Lista de tareas</h3>
+          <p>Aplicacion web para gestion de tareas online</p>
+          <p><strong>Tecnologías:</strong> JavaScript</p>
+          <div class="project-buttons">
+            <a href="proyectos/lista-tareas.html" class="btn-demo">Ver proyecto</a>
+            <a href="https://github.com/MatiasRodriguez21/lista-tareas" class="btn-github">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Plataforma de Gestión Inmobiliaria</h3>
+          <p>Administra propiedades en venta y alquiler.</p>
+          <p><strong>Tecnologías:</strong> Node.js, Express, PostgreSQL.</p>
+          <div class="project-buttons">
+            <a href="proyectos/inmobiliaria.html" class="btn-demo">Ver proyecto</a>
+            <a href="https://github.com/MatiasRodriguez21/inmobiliaria-app" class="btn-github">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO ================= -->
+  <section id="contact">
+    <div class="container contact-inner">
+      <h2>Contacto</h2>
+      <p>¿Querés hablar sobre oportunidades laborales o proyectos? <br> ¡Estoy disponible para colaborar!</p>
+      <div class="contact-links">
+        <a href="mailto:mati.rodriguez1201@gmail.com" class="contact-item">📧 Email</a>
+        <a href="https://www.linkedin.com/in/matirodriguez23/" target="_blank" class="contact-item">🔗 LinkedIn</a>
+        <a href="https://github.com/MatiasRodriguez21" target="_blank" class="contact-item">💻 GitHub</a>
+      </div>
+      <form class="contact-form">
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu email" required>
+        <textarea rows="4" placeholder="Escribí tu mensaje..." required></textarea>
+        <button type="submit" class="btn-form">Enviar Mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2025 Matías Rodríguez</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

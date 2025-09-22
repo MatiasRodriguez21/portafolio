@@ -1,0 +1,234 @@
+/* ===== Estilos comunes para páginas de proyecto =====
+   Usa las variables y tipografía ya definidas en ../style.css
+======================================================= */
+
+/* Breadcrumb */
+.breadcrumb { padding: 1rem 0 .5rem; }
+.breadcrumb a {
+  color: var(--indigo-dye);
+  text-decoration: none;
+  font-weight: 600;
+}
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible { text-decoration: underline; }
+
+/* ===== HERO ===== */
+.project-hero{
+  position: relative;
+  color: #fff;
+  padding: 2.75rem 0;
+  background: linear-gradient(135deg, var(--indigo-dye), var(--caribbean-current));
+  overflow: hidden;
+}
+.project-hero::after{
+  /* leve textura/velo para mejorar legibilidad */
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(1200px 400px at -10% -20%, rgba(255,255,255,.12), transparent 60%),
+              radial-gradient(800px 300px at 120% 120%, rgba(0,0,0,.15), transparent 60%);
+  pointer-events:none;
+}
+
+.project-hero-inner{
+  position: relative;
+  display:grid;
+  grid-template-columns: 1.25fr .9fr;
+  align-items:center;
+  gap: 2rem;
+  z-index:1;
+}
+
+.project-hero-text{
+  /* glassmorphism suave para dar contraste al texto */
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  padding: 1.25rem 1.25rem 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+/* >>> TÍTULO Y SUBTÍTULO EN BLANCO <<< */
+.project-hero h2{
+  color: #fff;                       /* fuerza blanco */
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin-bottom: .35rem;
+  text-shadow: 1px 2px 4px rgba(0,0,0,.35);
+}
+.project-hero .subtitle{
+  color: #fff;                       /* blanco explícito */
+  opacity:.95;
+  margin-bottom: .9rem;
+}
+
+/* CTAs */
+.project-cta{ margin-bottom: .6rem; }
+.project-cta a{
+  display:inline-block;
+  margin:.25rem .45rem .6rem 0;
+  padding:.65rem 1.15rem;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  transition: transform .18s ease, background .25s ease, box-shadow .25s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.15);
+}
+.project-cta a:focus-visible{ outline: 2px solid #fff; outline-offset: 3px; }
+
+.project-cta .btn-live{ background: var(--caribbean-current); color:#fff; }
+.project-cta .btn-live:hover{ background: var(--indigo-dye); transform: translateY(-2px); }
+
+.project-cta .btn-github{ background: var(--jet); color:#fff; }
+.project-cta .btn-github:hover{ background: var(--indigo-dye); transform: translateY(-2px); }
+
+/* Meta en chips */
+.project-meta{
+  list-style:none;
+  display:flex; flex-wrap:wrap; gap:.5rem .6rem;
+  margin-top:.25rem;
+  padding-left:0;
+}
+.project-meta li{
+  background: rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  color:#fff;
+  padding:.35rem .65rem;
+  border-radius:999px;
+  font-size:.92rem;
+}
+.project-meta span{ font-weight:700; color:#fff; }
+
+.project-hero-cover img{
+  width:100%;
+  border-radius:16px;
+  border:4px solid rgba(255,255,255,.18);
+  box-shadow: 0 14px 40px rgba(0,0,0,.28);
+  display:block;
+  background:#e9ecef;
+}
+
+/* ===== CUERPO ===== */
+.project-body{
+  padding-top: 2.25rem;
+  padding-bottom: 3rem;
+}
+
+/* Secciones como “cards” blancas para contraste */
+.project-section{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.05);
+  border-radius:14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  padding: 1.5rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.project-section h3{
+  color: var(--indigo-dye);
+  margin-bottom: .85rem;
+  position: relative;
+  padding-left: .8rem;
+}
+.project-section h3::before{
+  content:"";
+  position:absolute; left:0; top:.2rem; bottom:.2rem;
+  width:4px; border-radius:6px;
+  background: linear-gradient(180deg, var(--caribbean-current), var(--indigo-dye));
+}
+
+.project-section p{ color: var(--jet); line-height:1.75; }
+
+/* Listas */
+.bullets{ padding-left: 1.15rem; }
+.bullets li{ margin:.38rem 0; line-height:1.6; }
+
+/* Dos columnas */
+.two-col{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+/* Tags (tecnologías) */
+.tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.tag{
+  --ring: rgba(40,75,99,.18);
+  background: linear-gradient(180deg, #fff, #f6f6f6);
+  color: var(--jet);
+  border:1px solid var(--ring);
+  border-radius: 999px;
+  padding: .4rem .85rem;
+  font-weight: 600;
+  font-size: .9rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+.tag:hover{ transform: translateY(-1px); }
+
+/* ===== GALERÍA ===== */
+.gallery{
+  --size: 260px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--size), 1fr));
+  gap: 1rem;
+}
+.gallery figure{ margin:0; overflow:hidden; border-radius:12px; }
+.gallery img{
+  width:100%; height:100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display:block;
+  transition: transform .3s ease, filter .3s ease, box-shadow .3s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  cursor: zoom-in;
+}
+.gallery img:hover{
+  transform: scale(1.03);
+  filter: saturate(1.03);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  position: fixed; inset:0;
+  background: rgba(0,0,0,.8);
+  display:none; align-items:center; justify-content:center;
+  z-index: 2000;
+}
+.lightbox.active{ display:flex; }
+
+.lb-img{
+  max-width: 92%;
+  max-height: 82vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+.lb-close, .lb-prev, .lb-next{
+  position:absolute;
+  background: rgba(255,255,255,.15);
+  border:none; color:#fff;
+  width:46px; height:46px; line-height:1;
+  border-radius:12px; font-size:2rem; cursor:pointer;
+  backdrop-filter: blur(4px);
+  transition: background .2s ease, transform .2s ease;
+}
+.lb-close{ top: 22px; right: 22px; font-size:2.2rem; }
+.lb-prev { left: 22px; }
+.lb-next { right: 22px; }
+.lb-prev:hover, .lb-next:hover, .lb-close:hover{ background: rgba(255,255,255,.25); transform: translateY(-1px); }
+
+/* ===== ACCESIBILIDAD FOCUS ===== */
+a:focus-visible, button:focus-visible{
+  outline: 3px solid var(--caribbean-current);
+  outline-offset: 2px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1000px){
+  .project-hero-inner{ grid-template-columns: 1fr; }
+  .project-hero-cover{ order: -1; }
+}
+@media (max-width: 720px){
+  .two-col{ grid-template-columns: 1fr; }
+  .project-section{ padding: 1.25rem 1rem; }
+  .gallery{ --size: 220px; }
+}

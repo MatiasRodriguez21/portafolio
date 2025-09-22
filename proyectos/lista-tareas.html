@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de tareas — Proyecto</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="proyecto.css" />
+</head>
+<body>
+  <header id="navbar">
+    <nav class="container">
+      <h1>Matías Rodríguez</h1>
+      <ul>
+        <li><a href="../index.html#about">Sobre mí</a></li>
+        <li><a href="../index.html#projects">Proyectos</a></li>
+        <li><a href="../index.html#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container breadcrumb">
+    <a href="../index.html#projects">← Volver al portfolio</a>
+  </div>
+
+  <section class="project-hero">
+    <div class="container project-hero-inner">
+      <div class="project-hero-text">
+        <h2>Sistema de Turnos Online</h2>
+        <p class="subtitle">Aplicación web para gestionar reservas en instituciones.</p>
+
+        <div class="project-cta">
+          <a href="#" class="btn-live">Ver sitio</a>
+          <a href="#" class="btn-github">Ver en GitHub</a>
+        </div>
+
+        <ul class="project-meta">
+          <li><span>Rol:</span> Full Stack Jr</li>
+          <li><span>Año:</span> 2025</li>
+          <li><span>Equipo:</span> Individual</li>
+          <li><span>Estado:</span> En desarrollo</li>
+        </ul>
+      </div>
+
+      <div class="project-hero-cover">
+        <img src="../img/turnos/cover.jpg" alt="Portada Sistema de Turnos" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <main class="container project-body">
+    <section class="project-section">
+      <h3>Descripción</h3>
+      <p>
+        Plataforma para gestionar turnos de manera online con creación de usuarios,
+        calendarios, recordatorios y panel de administración. Permite definir
+        disponibilidad por profesional/servicio y evitar solapamientos.
+      </p>
+    </section>
+
+    <section class="project-section">
+      <h3>Funcionalidades principales</h3>
+      <ul class="bullets">
+        <li>Registro e inicio de sesión con validaciones.</li>
+        <li>Gestión de agenda por profesional y por servicio.</li>
+        <li>Reservas, cancelaciones y reprogramaciones.</li>
+        <li>Dashboard con métricas y búsqueda de turnos.</li>
+        <li>Notificaciones (email) para confirmación y recordatorio.</li>
+      </ul>
+    </section>
+
+    <section class="project-section">
+      <h3>Tecnologías</h3>
+      <div class="tags">
+        <span class="tag">FastAPI</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Docker (dev)</span>
+      </div>
+    </section>
+
+    <section class="project-section two-col">
+      <div>
+        <h3>Mi aporte</h3>
+        <ul class="bullets">
+          <li>Diseño de esquema de base de datos y endpoints REST.</li>
+          <li>UI (formularios, calendario, tablas) en React.</li>
+          <li>Autenticación y autorización por roles.</li>
+          <li>Deploy de ambiente demo (Docker Compose).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Aprendizajes</h3>
+        <ul class="bullets">
+          <li>Reglas de solapamiento de turnos.</li>
+          <li>Manejo de formularios complejos en React.</li>
+          <li>Buenas prácticas en FastAPI.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h3>Galería</h3>
+      <div class="gallery">
+        <figure><img src="../img/turnos/1.jpg" alt="Listado de turnos" /></figure>
+        <figure><img src="../img/turnos/2.jpg" alt="Calendario de turnos" /></figure>
+        <figure><img src="../img/turnos/3.jpg" alt="Detalle de reserva" /></figure>
+        <figure><img src="../img/turnos/4.jpg" alt="Panel de administración" /></figure>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Cerrar">×</button>
+    <button class="lb-prev" aria-label="Anterior">‹</button>
+    <img class="lb-img" alt="">
+    <button class="lb-next" aria-label="Siguiente">›</button>
+  </div>
+
+  <footer>
+    <p>© 2025 Matías Rodríguez</p>
+  </footer>
+
+  <script src="proyectos.js"></script>
+</body>
+</html>

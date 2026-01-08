@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Matías Rodríguez</title>
+  <title>Portfolio - Matías Rodríguez | Desarrollador Full Stack</title>
+  <meta name="description" content="Portfolio de Matías Rodríguez, Desarrollador Full Stack especializado en React, Node.js, y bases de datos. Estudiante de Tecnicatura en Desarrollo de Software en la Universidad Politécnica de Córdoba.">
+  <meta name="keywords" content="desarrollador web, full stack, React, Node.js, JavaScript, portfolio, programador, Córdoba, Argentina">
+  <meta name="author" content="Matías Rodríguez">
+  <meta property="og:title" content="Portfolio - Matías Rodríguez | Desarrollador Full Stack">
+  <meta property="og:description" content="Desarrollador Full Stack especializado en tecnologías modernas">
+  <meta property="og:type" content="website">
   <link rel="icon" href="img/logo.jpeg" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,6 +23,7 @@
         <li><a href="#about">Sobre mí</a></li>
         <li><a href="#projects">Proyectos</a></li>
         <li><a href="#contact">Contacto</a></li>
+        <li><button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema"><i class="fas fa-moon"></i></button></li>
       </ul>
     </nav>
   </header>
@@ -30,11 +38,10 @@
         </h2>
         <p id="typing"></p>
         <div class="hero-buttons">
-          <a href="#projects" class="btn-primary">📂 Ver Proyectos</a>
-          <a href="Rodriguez_Matias_CV.pdf" class="btn-secondary" target="_blank">📄 Descargar CV</a>
-          <a href="https://www.linkedin.com/in/matirodriguez23/" class="btn-linkedin" target="_blank">🔗 LinkedIn</a>
-          <a href="https://github.com/MatiasRodriguez21/lista-tareas" class="btn-github"> 💻 GitHub</a>
-
+          <a href="#projects" class="btn-primary"><i class="fas fa-folder-open"></i> Ver Proyectos</a>
+          <a href="Rodriguez_Matias_CV.pdf" class="btn-secondary" target="_blank"><i class="fas fa-download"></i> Descargar CV</a>
+          <a href="https://www.linkedin.com/in/matirodriguez23/" class="btn-linkedin" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/MatiasRodriguez21" class="btn-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         </div>
       </div>
 
@@ -90,49 +97,59 @@
   <!-- ================= PROYECTOS ================= -->
   <section id="projects" class="container">
     <h2>Proyectos</h2>
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all"><span>Todos</span></button>
+      <button class="filter-btn" data-filter="javascript"><span>JavaScript</span></button>
+      <button class="filter-btn" data-filter="react"><span>React</span></button>
+      <button class="filter-btn" data-filter="php"><span>PHP</span></button>
+    </div>
     <div class="projects-grid">
 
-      <div class="project-card">
+      <div class="project-card" data-tech="javascript">
+        <div class="project-icon"><i class="fas fa-tasks"></i></div>
         <div class="project-content">
           <h3>Lista de tareas</h3>
           <p>Aplicacion web para gestion de tareas online</p>
-          <p><strong>Tecnologías:</strong> JavaScript</p>
+          <p class="tech-tags"><span class="tech-tag">JavaScript</span></p>
           <div class="project-buttons">
-            <a href="proyectos/lista-tareas.html" class="btn-demo">Ver proyecto</a>
-            <a href="https://github.com/MatiasRodriguez21/lista-tareas" class="btn-github">GitHub</a>
+            <a href="proyectos/lista-tareas.html" class="btn-demo"><i class="fas fa-eye"></i> Ver proyecto</a>
+            <a href="https://github.com/MatiasRodriguez21/lista-tareas" class="btn-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-tech="react">
+        <div class="project-icon"><i class="fas fa-building"></i></div>
         <div class="project-content">
           <h3>Plataforma de Gestión Inmobiliaria</h3>
           <p>Administra propiedades en venta y alquiler.</p>
-          <p><strong>Tecnologías:</strong> React - Tailwind</p>
+          <p class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">Tailwind</span></p>
           <div class="project-buttons">
-            <a href="proyectos/inmobiliaria.html" class="btn-demo">Ver proyecto</a>
-            <a href="https://inmobiliaria-app-theta.vercel.app/" class="btn-demo">Ver sitio</a>
-            <a href="https://github.com/MatiasRodriguez21/inmobiliaria-app" class="btn-github">GitHub</a>
+            <a href="proyectos/inmobiliaria.html" class="btn-demo"><i class="fas fa-eye"></i> Ver proyecto</a>
+            <a href="https://inmobiliaria-app-theta.vercel.app/" class="btn-demo" target="_blank"><i class="fas fa-external-link-alt"></i> Ver sitio</a>
+            <a href="https://github.com/MatiasRodriguez21/inmobiliaria-app" class="btn-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-tech="php">
+        <div class="project-icon"><i class="fas fa-calendar-check"></i></div>
         <div class="project-content">
-          <h3>App de turnos</h3>
+          <h3>App de inventario</h3>
           <p>En desarrollo...</p>
-          <p><strong>Tecnologías:</strong>PHP (Laravel)</p>
+          <p class="tech-tags"><span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span></p>
           <div class="project-buttons">
-            <a href="proyectos/lista-tareas.html" class="btn-demo">Ver proyecto</a>
-            <a href="https://github.com/MatiasRodriguez21/lista-tareas" class="btn-github">GitHub</a>
+            <a href="#" class="btn-demo"><i class="fas fa-eye"></i> Proximamente</a>
+            <a href="https://github.com/MatiasRodriguez21/inventario-simple" class="btn-github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card coming-soon" data-tech="all">
+        <div class="project-icon"><i class="fas fa-rocket"></i></div>
         <div class="project-content">
-          <h3>Proximamente</h3>
-          
+          <h3>Próximamente</h3>
+          <p>Nuevos proyectos en camino...</p>
         </div>
       </div>
 
@@ -144,11 +161,11 @@
   <section id="contact">
     <div class="container contact-inner">
       <h2>Contacto</h2>
-      <p>¿Querés hablar sobre oportunidades laborales o proyectos? <br> ¡Estoy disponible para colaborar!</p>
+      <p>¿Queres contactarme? <br> ¡Estoy disponible!</p>
       <div class="contact-links">
-        <a href="mailto:mati.rodriguez1201@gmail.com" class="contact-item">📧 Email</a>
-        <a href="https://www.linkedin.com/in/matirodriguez23/" target="_blank" class="contact-item">🔗 LinkedIn</a>
-        <a href="https://github.com/MatiasRodriguez21" target="_blank" class="contact-item">💻 GitHub</a>
+        <a href="mailto:mati.rodriguez1201@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/matirodriguez23/" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/MatiasRodriguez21" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
       </div>
       <form class="contact-form">
         <input type="text" placeholder="Tu nombre" required>
@@ -163,6 +180,17 @@
   <footer>
     <p>© 2025 Matías Rodríguez</p>
   </footer>
+
+  <!-- Barra de progreso de scroll -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Botón volver arriba -->
+  <button id="scroll-top" class="scroll-top" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Cursor personalizado -->
+  <div class="custom-cursor"></div>
 
   <script src="script.js"></script>
 </body>

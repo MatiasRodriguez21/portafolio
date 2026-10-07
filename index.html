@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261007220000">
+  <link rel="stylesheet" href="styles.css?v=20261007230000">
   <script>
     document.documentElement.classList.add('js');
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -312,21 +312,26 @@
         <h3 class="more__title rv">Otras implementaciones</h3>
         <ul class="minis">
           <li class="mini rv" style="--d:0">
+            <h4>Marketplaces al ERP vía Google Sheets</h4>
+            <p>Pedidos de Tienda BNA y Frávega y envíos de Andreani en Google Sheets, y de ahí cargados al ERP.</p>
+            <p class="mini__stack">Google Sheets · API de Andreani</p>
+          </li>
+          <li class="mini rv" style="--d:1">
             <h4>Backup de facturas en la nube</h4>
             <p>Copia diaria y automática de las facturas del ERP a AWS S3, con un visor web.</p>
             <p class="mini__stack">Node.js · AWS S3</p>
           </li>
-          <li class="mini rv" style="--d:1">
+          <li class="mini rv" style="--d:2">
             <h4>Software de documentación</h4>
             <p>Documentación que varias personas editan en tiempo real, con permisos por área.</p>
             <p class="mini__stack">Node.js · WebSockets</p>
           </li>
-          <li class="mini rv" style="--d:2">
+          <li class="mini rv" style="--d:3">
             <h4>Etiquetas de Mercado Libre</h4>
             <p>Conversor de etiquetas de envío a PDF para imprimir en cualquier impresora.</p>
             <p class="mini__stack">Python · FastAPI</p>
           </li>
-          <li class="mini rv" style="--d:3">
+          <li class="mini rv" style="--d:0">
             <h4>Gestión inmobiliaria</h4>
             <p>Sitio de propiedades con filtros y una API con inicio de sesión. Proyecto personal.</p>
             <p class="mini__stack">React · FastAPI</p>
@@ -351,7 +356,7 @@
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="store"></span><span class="trow__name">E-commerce<span class="trow__desc">Tiendas y canales de venta conectados con el stock real.</span></span></dt>
-          <dd><ul class="tags"><li class="is-core">PrestaShop</li><li>WooCommerce</li><li>Mercado Libre</li><li class="is-core">Mercado Pago</li></ul></dd>
+          <dd><ul class="tags"><li class="is-core">PrestaShop</li><li>WooCommerce</li><li>Mercado Libre</li><li>Tienda BNA</li><li>Frávega</li><li class="is-core">Mercado Pago</li></ul></dd>
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="chart"></span><span class="trow__name">Datos<span class="trow__desc">Bases y reportes que se arman solos.</span></span></dt>
@@ -359,7 +364,7 @@
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="link"></span><span class="trow__name">Integraciones<span class="trow__desc">Sistemas que no se hablan, conectados.</span></span></dt>
-          <dd><ul class="tags"><li class="is-core">APIs REST y SOAP</li><li class="is-core">Webhooks</li></ul></dd>
+          <dd><ul class="tags"><li class="is-core">APIs REST y SOAP</li><li class="is-core">Webhooks</li><li>Google Sheets</li><li>Andreani</li></ul></dd>
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="phone"></span><span class="trow__name">Frontend y mobile<span class="trow__desc">Interfaces web y apps para el depósito.</span></span></dt>
@@ -446,6 +451,6 @@
     <span>© 2026 Matías Rodríguez</span>
   </footer>
 
-  <script src="main.js?v=20261007220000"></script>
+  <script src="main.js?v=20261007230000"></script>
 </body>
 </html>

@@ -468,7 +468,7 @@ mark { color: var(--hl-ink); background: linear-gradient(var(--hl), var(--hl)) n
 .aside { margin-top: 18px; font-size: 14px; color: var(--muted); }
 .more { margin-top: 40px; }
 .more__title { font-size: 20px; letter-spacing: -0.02em; margin-bottom: 14px; }
-.minis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.minis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
 .mini {
   display: flex; flex-direction: column; padding: 18px;
   border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--surface) 70%, transparent);
@@ -493,7 +493,8 @@ mark { color: var(--hl-ink); background: linear-gradient(var(--hl), var(--hl)) n
 .mini__links button:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; border-radius: 3px; }
 .mini__links a:focus-visible { outline: none; }
 .mini:has(.mini__links a:first-child:focus-visible) { outline: 2px solid var(--mark); outline-offset: 3px; }
-@media (max-width: 1060px) { .minis { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1180px) { .minis { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) { .minis { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .minis { grid-template-columns: 1fr; } }
 @media (max-width: 920px) {
   .details { grid-template-columns: 1fr; }

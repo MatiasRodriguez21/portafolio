@@ -33,10 +33,19 @@
   });
 
   // ---------- Tema (oscuro por defecto) ----------
-  document.getElementById('theme').addEventListener('click', function () {
+  var themeBtn = document.getElementById('theme');
+  // La etiqueta dice lo que hace el botón, no el modo actual
+  function labelTheme() {
+    var label = (root.dataset.theme || 'dark') === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+    themeBtn.setAttribute('aria-label', label);
+    themeBtn.title = label;
+  }
+  labelTheme();
+  themeBtn.addEventListener('click', function () {
     var next = (root.dataset.theme || 'dark') === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch (e) {}
+    labelTheme();
   });
 
   // ---------- Título: palabras que entran escalonadas ----------
@@ -417,7 +426,7 @@
     btn.type = 'button';
     btn.className = 'tag';
     btn.setAttribute('aria-pressed', 'false');
-    btn.setAttribute('aria-label', name + ', usada en ' + matches.length + (matches.length === 1 ? ' proyecto' : ' proyectos'));
+    btn.setAttribute('aria-label', name + ', usada en ' + matches.length + (matches.length === 1 ? ' implementación' : ' implementaciones'));
     btn.textContent = name;
     var n = document.createElement('span');
     n.className = 'tag__n';
@@ -477,7 +486,7 @@
     alignGlow();
 
     // Reflejo dentro de las tarjetas
-    document.querySelectorAll('.det, .mini, .edu__list li, .fig').forEach(function (card) {
+    document.querySelectorAll('.det, .mini, .fig').forEach(function (card) {
       card.classList.add('spot');
       card.addEventListener('pointermove', function (e) {
         var r = card.getBoundingClientRect();
@@ -496,6 +505,32 @@
         b.style.translate = (dx * 6).toFixed(1) + 'px ' + (dy * 5).toFixed(1) + 'px';
       });
       b.addEventListener('pointerleave', function () { b.style.translate = ''; });
+    });
+  }
+
+  // ---------- Capturas de proyectos: se abren solo si las piden ----------
+  var shot = document.getElementById('shot');
+  if (shot && shot.showModal) {
+    var shotImg = shot.querySelector('.shot__img');
+    var shotTitle = shot.querySelector('.shot__title');
+    var shotOpener = null;
+    document.querySelectorAll('[data-shot]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        shotOpener = btn;
+        shotImg.src = btn.getAttribute('data-shot');
+        shotImg.alt = btn.getAttribute('data-title');
+        shotTitle.textContent = btn.getAttribute('data-title');
+        shot.showModal();
+      });
+    });
+    shot.querySelector('.shot__close').addEventListener('click', function () { shot.close(); });
+    // Clic fuera de la imagen (en el fondo oscuro) cierra
+    shot.addEventListener('click', function (e) { if (e.target === shot) shot.close(); });
+    shot.addEventListener('close', function () { if (shotOpener) shotOpener.focus(); });
+  } else {
+    // Navegadores sin <dialog>: la captura se abre en otra pestaña
+    document.querySelectorAll('[data-shot]').forEach(function (btn) {
+      btn.addEventListener('click', function () { window.open(btn.getAttribute('data-shot'), '_blank', 'noopener'); });
     });
   }
 

@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261007183000">
+  <link rel="stylesheet" href="styles.css?v=20261007220000">
   <script>
     document.documentElement.classList.add('js');
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -50,17 +50,17 @@
         <span class="brand__mark" aria-hidden="true">MR</span>
         <span class="brand__text">
           <span class="brand__name">Matías Rodríguez</span>
-          <span class="brand__role">Desarrollador full stack</span>
+          <span class="brand__role">Desarrollador e implementador</span>
         </span>
       </a>
       <nav class="menu" aria-label="Secciones">
         <a href="#servicios" data-spy="servicios">Servicios</a>
-        <a href="#proyectos" data-spy="proyectos">Proyectos</a>
+        <a href="#proyectos" data-spy="proyectos">Implementaciones</a>
         <a href="#proceso" data-spy="proceso">Cómo trabajo</a>
       </nav>
       <div class="top__actions">
-        <button class="theme" id="theme" type="button" aria-label="Cambiar entre plano azul y papel">
-          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M3.5 16.5 16.5 3.5" stroke="currentColor" stroke-width="1.4"/></svg>
+        <button class="theme" id="theme" type="button" aria-label="Cambiar a modo claro" title="Cambiar a modo claro">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><g class="theme__ico"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 3a7 7 0 0 0 0 14z" fill="currentColor"/></g></svg>
         </button>
         <a href="#contacto" class="top__cta">Hablemos</a>
       </div>
@@ -102,7 +102,6 @@
       <div class="about rv">
         <p class="about__big">Me especializo en <mark>integrar sistemas y automatizar procesos</mark> para negocios que venden online: tiendas, marketplaces, pagos, depósito y datos, trabajando juntos.</p>
         <div class="about__side">
-          <p>Estudio la Tecnicatura en Desarrollo de Software en el Instituto Politécnico de Córdoba.</p>
           <p>Antes coordiné el área de Digitalización del Ministerio Público Fiscal. De ahí me quedó un hábito: entender cómo trabaja la gente antes de escribir una línea de código.</p>
         </div>
       </div>
@@ -263,8 +262,8 @@
     <!-- ============ LÁMINA 04 · PROYECTOS ============ -->
     <section class="section wrap" id="proyectos">
       <header class="head rv">
-        <h2>Proyectos</h2>
-        <p class="head__note">Proyectos reales, en uso todos los días.</p>
+        <h2>Implementaciones reales</h2>
+        <p class="head__note">Sistemas que desarrollé e implementé, en uso todos los días.</p>
       </header>
 
       <div class="details">
@@ -274,100 +273,64 @@
           <p>Une el sistema de gestión con 4 tiendas online, Mercado Pago, el depósito y los reportes de ventas.</p>
           <p class="det__result"><span>Resultado</span>Stock, precios y pedidos al día en 4 tiendas, sin carga manual. Cada sincronización con el ERP pesa un 95% menos.</p>
           <div class="det__more">
-            <ul>
-              <li>Los pedidos de las tiendas llegan solos al ERP y al depósito.</li>
-              <li>Los pagos se registran una sola vez, aunque algo falle en el camino.</li>
-              <li>Ventas, facturas y stock disponibles para analizar en BigQuery.</li>
-            </ul>
-            <p class="note">Proyecto en equipo.</p>
+            <p class="note">Implementado en equipo.</p>
           </div>
           <p class="det__stack">Laravel · APIs REST y SOAP · BigQuery</p>
         </article>
 
         <article class="det rv" style="--d:1">
-          <p class="det__tag">Det. B · App de depósito</p>
+          <p class="det__tag">Det. B · Analítica e-commerce</p>
+          <h3>DataLayer GA4 para PrestaShop</h3>
+          <p>Módulo que envía a Google Tag Manager y GA4 todo el recorrido de compra: listados, producto, carrito, checkout, pago y compra.</p>
+          <p class="det__result"><span>Resultado</span>Ventas medidas con precisión: compras y reembolsos se registran desde el servidor, aunque el navegador bloquee el seguimiento.</p>
+          <div class="det__more">
+            <p class="note">12 eventos de e-commerce, incluidas las transferencias que se acreditan días después.</p>
+          </div>
+          <p class="det__stack">PrestaShop · PHP · Google Tag Manager · GA4</p>
+        </article>
+
+        <article class="det rv" style="--d:1">
+          <p class="det__tag">Det. C · App de depósito</p>
           <h3>Seriales al empaque</h3>
           <p>App web y Android para los escáneres del depósito: al embalar una máquina, su número de serie queda guardado en el pedido.</p>
           <p class="det__result"><span>Resultado</span>Cada máquina vendida queda identificada para la garantía.</p>
           <div class="det__more">
-            <ul>
-              <li>Ingreso con código QR y un puesto de trabajo por operario.</li>
-              <li>Avisos al instante en cada puesto cuando entra un pedido.</li>
-              <li>Funciona todos los días en el depósito.</li>
-            </ul>
-            <p class="note">Proyecto propio, de punta a punta.</p>
+            <p class="note">Desarrollado e implementado de punta a punta.</p>
           </div>
           <p class="det__stack">Laravel · Kotlin · Docker</p>
         </article>
 
         <article class="det rv" style="--d:2">
-          <p class="det__tag">Det. C · E-commerce</p>
+          <p class="det__tag">Det. D · E-commerce</p>
           <h3>Módulos para la tienda online</h3>
           <p>Más de 15 módulos a medida para una tienda online que mejoran cómo se busca, se compra y se factura.</p>
           <p class="det__result"><span>Resultado</span>Más de 15 módulos en producción: la tienda encuentra lo que el cliente busca y ofrece envío en el día.</p>
-          <div class="det__more">
-            <ul>
-              <li>Buscador que entiende errores de tipeo y sinónimos.</li>
-              <li>Envío en el día según el código postal, con horario de corte.</li>
-              <li>Factura A para empresas y analítica de ventas.</li>
-            </ul>
-          </div>
           <p class="det__stack">PrestaShop · PHP · JavaScript</p>
         </article>
       </div>
       <div class="more">
-        <h3 class="more__title rv">Otros proyectos</h3>
+        <h3 class="more__title rv">Otras implementaciones</h3>
         <ul class="minis">
           <li class="mini rv" style="--d:0">
-            <span class="mini__kind">Trabajo</span>
             <h4>Backup de facturas en la nube</h4>
             <p>Copia diaria y automática de las facturas del ERP a AWS S3, con un visor web.</p>
             <p class="mini__stack">Node.js · AWS S3</p>
           </li>
           <li class="mini rv" style="--d:1">
-            <span class="mini__kind">Trabajo</span>
-            <h4>Wiki interna colaborativa</h4>
+            <h4>Software de documentación</h4>
             <p>Documentación que varias personas editan en tiempo real, con permisos por área.</p>
             <p class="mini__stack">Node.js · WebSockets</p>
           </li>
           <li class="mini rv" style="--d:2">
-            <span class="mini__kind">Trabajo</span>
             <h4>Etiquetas de Mercado Libre</h4>
             <p>Conversor de etiquetas de envío a PDF para imprimir en cualquier impresora.</p>
             <p class="mini__stack">Python · FastAPI</p>
           </li>
           <li class="mini rv" style="--d:3">
-            <span class="mini__kind">Trabajo</span>
-            <h4>Tareas redactadas con IA</h4>
-            <p>Formulario que crea tareas en Bitrix24 escritas por Claude, listas para asignar.</p>
-            <p class="mini__stack">Python · API de Anthropic</p>
-          </li>
-          <li class="mini rv" style="--d:0">
-            <span class="mini__kind">Personal</span>
             <h4>Gestión inmobiliaria</h4>
-            <p>Sitio de propiedades con filtros, mapa y una API con inicio de sesión.</p>
+            <p>Sitio de propiedades con filtros y una API con inicio de sesión. Proyecto personal.</p>
             <p class="mini__stack">React · FastAPI</p>
-            <p class="mini__links"><a href="https://inmobiliaria-app-theta.vercel.app/" target="_blank" rel="noopener">Ver sitio ↗</a> <a href="https://github.com/MatiasRodriguez21/inmobiliaria-app" target="_blank" rel="noopener">Código ↗</a></p>
-          </li>
-          <li class="mini rv" style="--d:1">
-            <span class="mini__kind">Personal</span>
-            <h4>Inventario simple</h4>
-            <p>Sistema de inventario con altas, bajas y modificaciones, publicado en la nube.</p>
-            <p class="mini__stack">Laravel · Vercel</p>
-            <p class="mini__links"><a href="https://github.com/MatiasRodriguez21/inventario-simple" target="_blank" rel="noopener">Código ↗</a></p>
-          </li>
-          <li class="mini rv" style="--d:2">
-            <span class="mini__kind">Personal</span>
-            <h4>API GraphQL de usuarios</h4>
-            <p>API con GraphQL y base de datos, lista para correr con Docker.</p>
-            <p class="mini__stack">TypeScript · MongoDB · Docker</p>
-            <p class="mini__links"><a href="https://github.com/MatiasRodriguez21/user-crud-api" target="_blank" rel="noopener">Código ↗</a></p>
-          </li>
-          <li class="mini rv" style="--d:3">
-            <span class="mini__kind">Facultad</span>
-            <h4>Gestión de inventario</h4>
-            <p>App web hecha en equipo de 5: armé la base, las rutas y los permisos por rol.</p>
-            <p class="mini__stack">Angular · RxJS</p>
+            <p class="mini__links"><a href="https://inmobiliaria-app-theta.vercel.app/" target="_blank" rel="noopener">Ver sitio ↗</a> <a href="https://github.com/MatiasRodriguez21/inmobiliaria-app" target="_blank" rel="noopener">Código ↗</a> <button type="button" data-shot="img/inmobiliaria.webp" data-title="Gestión inmobiliaria: listado de propiedades en venta">Captura</button></p>
           </li>
         </ul>
       </div>
@@ -378,13 +341,13 @@
     <section class="section wrap band" id="conocimientos">
       <header class="head rv">
         <h2>Tecnologías</h2>
-        <p class="head__note">Con qué trabajo y en qué proyectos lo apliqué. Tocá una tecnología para verlos.</p>
+        <p class="head__note">Con qué trabajo y dónde lo implementé. Tocá una tecnología para verlo.</p>
       </header>
-      <p class="tlegend rv"><span><i class="tlegend__core" aria-hidden="true"></i>Uso diario</span><span><i class="tlegend__n" aria-hidden="true">3</i>Proyectos de esta página que la usan</span></p>
+      <p class="tlegend rv"><span><i class="tlegend__core" aria-hidden="true"></i>Uso diario</span><span><i class="tlegend__n" aria-hidden="true">3</i>Implementaciones que la usan</span></p>
       <dl class="tlist rv">
         <div class="trow">
           <dt><span class="trow__ico" data-icon="server"></span><span class="trow__name">Backend<span class="trow__desc">APIs y lógica de negocio que corren todos los días.</span></span></dt>
-          <dd><ul class="tags"><li class="is-core">PHP</li><li class="is-core">Laravel</li><li>Node.js</li><li>Express</li><li>Python</li></ul></dd>
+          <dd><ul class="tags"><li class="is-core">PHP</li><li class="is-core">Laravel</li><li>Node.js</li><li>Python</li></ul></dd>
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="store"></span><span class="trow__name">E-commerce<span class="trow__desc">Tiendas y canales de venta conectados con el stock real.</span></span></dt>
@@ -392,19 +355,19 @@
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="chart"></span><span class="trow__name">Datos<span class="trow__desc">Bases y reportes que se arman solos.</span></span></dt>
-          <dd><ul class="tags"><li class="is-core">MySQL</li><li class="is-core">Google BigQuery</li><li>PostgreSQL</li><li>MongoDB</li><li>Redis</li></ul></dd>
+          <dd><ul class="tags"><li class="is-core">MySQL</li><li class="is-core">Google BigQuery</li><li class="is-core">Google Tag Manager</li><li class="is-core">GA4</li></ul></dd>
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="link"></span><span class="trow__name">Integraciones<span class="trow__desc">Sistemas que no se hablan, conectados.</span></span></dt>
-          <dd><ul class="tags"><li class="is-core">APIs REST y SOAP</li><li class="is-core">Webhooks</li><li>OAuth</li></ul></dd>
+          <dd><ul class="tags"><li class="is-core">APIs REST y SOAP</li><li class="is-core">Webhooks</li></ul></dd>
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="phone"></span><span class="trow__name">Frontend y mobile<span class="trow__desc">Interfaces web y apps para el depósito.</span></span></dt>
-          <dd><ul class="tags"><li>JavaScript</li><li>React</li><li>TypeScript</li><li>Kotlin</li></ul></dd>
+          <dd><ul class="tags"><li>JavaScript</li><li>React</li><li>Kotlin</li></ul></dd>
         </div>
         <div class="trow">
           <dt><span class="trow__ico" data-icon="spark"></span><span class="trow__name">Infraestructura e IA<span class="trow__desc">Despliegue, respaldos e IA aplicada.</span></span></dt>
-          <dd><ul class="tags"><li class="is-core">Docker</li><li>GitHub Actions</li><li>AWS S3</li><li>Linux</li><li class="is-core">Claude Code</li></ul></dd>
+          <dd><ul class="tags"><li class="is-core">Docker</li><li>AWS S3</li><li class="is-core">Claude Code</li></ul></dd>
         </div>
       </dl>
     </section>
@@ -444,27 +407,6 @@
           </li>
         </ol>
       </div>
-
-      <div class="edu">
-        <p class="sheet rv">Formación</p>
-        <ul class="edu__list">
-          <li class="rv" style="--d:0">
-            <span class="edu__when edu__when--now"><span class="dot" aria-hidden="true"></span>En curso</span>
-            <strong>Tecnicatura en Desarrollo de Software</strong>
-            <span>Instituto Politécnico de Córdoba</span>
-          </li>
-          <li class="rv" style="--d:1">
-            <span class="edu__when">2022 - 2024</span>
-            <strong>Desarrollo Web, Python y React</strong>
-            <span>Cursos de Udemy</span>
-          </li>
-          <li class="rv" style="--d:2">
-            <span class="edu__when">Idiomas y métodos</span>
-            <strong>Inglés B2</strong>
-            <span>Scrum, Kanban, Git con pull requests</span>
-          </li>
-        </ul>
-      </div>
     </section>
 
     <!-- ============ LÁMINA 07 · CONTACTO ============ -->
@@ -492,10 +434,18 @@
     </section>
   </main>
 
+  <dialog class="shot" id="shot" aria-labelledby="shot-title">
+    <div class="shot__bar">
+      <p class="shot__title" id="shot-title"></p>
+      <button class="shot__close" type="button" aria-label="Cerrar captura">×</button>
+    </div>
+    <img class="shot__img" alt="" width="1440" height="868">
+  </dialog>
+
   <footer class="foot wrap">
     <span>© 2026 Matías Rodríguez</span>
   </footer>
 
-  <script src="main.js?v=20261007183000"></script>
+  <script src="main.js?v=20261007220000"></script>
 </body>
 </html>

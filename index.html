@@ -36,13 +36,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261007124057">
+  <link rel="stylesheet" href="styles.css?v=20261007183000">
   <script>
     document.documentElement.classList.add('js');
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
 </head>
 <body>
+  <a class="skip" href="#main">Saltar al contenido</a>
   <header class="top" id="top">
     <div class="wrap top__inner">
       <a href="#" class="brand" aria-label="Matías Rodríguez, inicio">
@@ -66,7 +67,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ============ LÁMINA 01 · HERO ============ -->
     <section class="hero wrap">
       <div class="hero__copy">
@@ -75,7 +76,7 @@
           <span class="rot" id="rot" aria-live="polite"><span class="rot__w">tienda online</span></span>
           <span class="split">con todo lo demás.</span>
         </h1>
-        <p class="lede">Soy Matías, desarrollador full stack. Hago que tu tienda, tus marketplaces, tu gestión y tu depósito trabajen juntos, sin cargar datos a mano.</p>
+        <p class="lede">Soy Matías, desarrollador full stack. Hago que tu tienda, tus marketplaces, tu gestión y tu depósito trabajen juntos, sin carga manual.</p>
         <div class="cta">
           <a class="btn btn--solid" href="#contacto">Hablemos <span aria-hidden="true">→</span></a>
           <a class="btn" href="#servicios">Ver servicios</a>
@@ -267,20 +268,19 @@
       </header>
 
       <div class="details">
-        <article class="det rv" style="--d:0">
+        <article class="det det--lead rv" style="--d:0">
           <p class="det__tag">Det. A · Integración</p>
           <h3>Conector ERP ↔ tiendas ↔ depósito</h3>
           <p>Une el sistema de gestión con 4 tiendas online, Mercado Pago, el depósito y los reportes de ventas.</p>
-          <p class="det__result"><span>Resultado</span>Stock, precios y pedidos al día en todos los canales, sin carga manual.</p>
-          <details>
-            <summary>Ver detalle</summary>
+          <p class="det__result"><span>Resultado</span>Stock, precios y pedidos al día en 4 tiendas, sin carga manual. Cada sincronización con el ERP pesa un 95% menos.</p>
+          <div class="det__more">
             <ul>
               <li>Los pedidos de las tiendas llegan solos al ERP y al depósito.</li>
               <li>Los pagos se registran una sola vez, aunque algo falle en el camino.</li>
               <li>Ventas, facturas y stock disponibles para analizar en BigQuery.</li>
             </ul>
             <p class="note">Proyecto en equipo.</p>
-          </details>
+          </div>
           <p class="det__stack">Laravel · APIs REST y SOAP · BigQuery</p>
         </article>
 
@@ -289,15 +289,14 @@
           <h3>Seriales al empaque</h3>
           <p>App web y Android para los escáneres del depósito: al embalar una máquina, su número de serie queda guardado en el pedido.</p>
           <p class="det__result"><span>Resultado</span>Cada máquina vendida queda identificada para la garantía.</p>
-          <details>
-            <summary>Ver detalle</summary>
+          <div class="det__more">
             <ul>
               <li>Ingreso con código QR y un puesto de trabajo por operario.</li>
               <li>Avisos al instante en cada puesto cuando entra un pedido.</li>
               <li>Funciona todos los días en el depósito.</li>
             </ul>
             <p class="note">Proyecto propio, de punta a punta.</p>
-          </details>
+          </div>
           <p class="det__stack">Laravel · Kotlin · Docker</p>
         </article>
 
@@ -305,15 +304,14 @@
           <p class="det__tag">Det. C · E-commerce</p>
           <h3>Módulos para la tienda online</h3>
           <p>Más de 15 módulos a medida para una tienda online que mejoran cómo se busca, se compra y se factura.</p>
-          <p class="det__result"><span>Resultado</span>Una tienda que encuentra lo que el cliente busca y ofrece envío en el día.</p>
-          <details>
-            <summary>Ver detalle</summary>
+          <p class="det__result"><span>Resultado</span>Más de 15 módulos en producción: la tienda encuentra lo que el cliente busca y ofrece envío en el día.</p>
+          <div class="det__more">
             <ul>
               <li>Buscador que entiende errores de tipeo y sinónimos.</li>
               <li>Envío en el día según el código postal, con horario de corte.</li>
               <li>Factura A para empresas y analítica de ventas.</li>
             </ul>
-          </details>
+          </div>
           <p class="det__stack">PrestaShop · PHP · JavaScript</p>
         </article>
       </div>
@@ -376,35 +374,37 @@
       <p class="aside rv">Más código en <a href="https://github.com/MatiasRodriguez21" target="_blank" rel="noopener">GitHub ↗</a></p>
     </section>
 
-    <!-- ============ LÁMINA 05 · MATERIALES ============ -->
+    <!-- ============ LÁMINA 05 · TECNOLOGÍAS ============ -->
     <section class="section wrap band" id="conocimientos">
       <header class="head rv">
         <h2>Tecnologías</h2>
+        <p class="head__note">Con qué trabajo y en qué proyectos lo apliqué. Tocá una tecnología para verlos.</p>
       </header>
+      <p class="tlegend rv"><span><i class="tlegend__core" aria-hidden="true"></i>Uso diario</span><span><i class="tlegend__n" aria-hidden="true">3</i>Proyectos de esta página que la usan</span></p>
       <dl class="tlist rv">
         <div class="trow">
-          <dt><span class="trow__ico" data-icon="server"></span>Backend</dt>
-          <dd><ul class="tags"><li>PHP</li><li>Laravel</li><li>Node.js</li><li>Python</li></ul></dd>
+          <dt><span class="trow__ico" data-icon="server"></span><span class="trow__name">Backend<span class="trow__desc">APIs y lógica de negocio que corren todos los días.</span></span></dt>
+          <dd><ul class="tags"><li class="is-core">PHP</li><li class="is-core">Laravel</li><li>Node.js</li><li>Express</li><li>Python</li></ul></dd>
         </div>
         <div class="trow">
-          <dt><span class="trow__ico" data-icon="store"></span>E-commerce</dt>
-          <dd><ul class="tags"><li>PrestaShop</li><li>WooCommerce</li><li>Mercado Libre</li><li>Mercado Pago</li></ul></dd>
+          <dt><span class="trow__ico" data-icon="store"></span><span class="trow__name">E-commerce<span class="trow__desc">Tiendas y canales de venta conectados con el stock real.</span></span></dt>
+          <dd><ul class="tags"><li class="is-core">PrestaShop</li><li>WooCommerce</li><li>Mercado Libre</li><li class="is-core">Mercado Pago</li></ul></dd>
         </div>
         <div class="trow">
-          <dt><span class="trow__ico" data-icon="chart"></span>Datos</dt>
-          <dd><ul class="tags"><li>MySQL</li><li>Google BigQuery</li><li>MongoDB</li><li>Redis</li></ul></dd>
+          <dt><span class="trow__ico" data-icon="chart"></span><span class="trow__name">Datos<span class="trow__desc">Bases y reportes que se arman solos.</span></span></dt>
+          <dd><ul class="tags"><li class="is-core">MySQL</li><li class="is-core">Google BigQuery</li><li>PostgreSQL</li><li>MongoDB</li><li>Redis</li></ul></dd>
         </div>
         <div class="trow">
-          <dt><span class="trow__ico" data-icon="link"></span>Integraciones</dt>
-          <dd><ul class="tags"><li>APIs REST y SOAP</li><li>Webhooks</li><li>OAuth</li></ul></dd>
+          <dt><span class="trow__ico" data-icon="link"></span><span class="trow__name">Integraciones<span class="trow__desc">Sistemas que no se hablan, conectados.</span></span></dt>
+          <dd><ul class="tags"><li class="is-core">APIs REST y SOAP</li><li class="is-core">Webhooks</li><li>OAuth</li></ul></dd>
         </div>
         <div class="trow">
-          <dt><span class="trow__ico" data-icon="phone"></span>Frontend y mobile</dt>
+          <dt><span class="trow__ico" data-icon="phone"></span><span class="trow__name">Frontend y mobile<span class="trow__desc">Interfaces web y apps para el depósito.</span></span></dt>
           <dd><ul class="tags"><li>JavaScript</li><li>React</li><li>TypeScript</li><li>Kotlin</li></ul></dd>
         </div>
         <div class="trow">
-          <dt><span class="trow__ico" data-icon="spark"></span>Infraestructura e IA</dt>
-          <dd><ul class="tags"><li>Docker</li><li>GitHub Actions</li><li>AWS S3</li><li>Linux</li><li>Claude Code</li></ul></dd>
+          <dt><span class="trow__ico" data-icon="spark"></span><span class="trow__name">Infraestructura e IA<span class="trow__desc">Despliegue, respaldos e IA aplicada.</span></span></dt>
+          <dd><ul class="tags"><li class="is-core">Docker</li><li>GitHub Actions</li><li>AWS S3</li><li>Linux</li><li class="is-core">Claude Code</li></ul></dd>
         </div>
       </dl>
     </section>
@@ -454,7 +454,7 @@
             <span>Instituto Politécnico de Córdoba</span>
           </li>
           <li class="rv" style="--d:1">
-            <span class="edu__when">2022 — 2024</span>
+            <span class="edu__when">2022 - 2024</span>
             <strong>Desarrollo Web, Python y React</strong>
             <span>Cursos de Udemy</span>
           </li>
@@ -471,49 +471,31 @@
     <section class="section wrap" id="contacto">
       <div class="contact rv">
         <span class="crop crop--tl"></span><span class="crop crop--tr"></span><span class="crop crop--bl"></span><span class="crop crop--br"></span>
-        <div class="contact__main">
-          <h2>¿Tenés sistemas que no se hablan entre sí?</h2>
-          <p>Contame qué necesitás y te respondo con una propuesta concreta.</p>
-          <a class="btn btn--solid contact__cta" href="mailto:mati.rodriguez1201@gmail.com">Enviar un email <span aria-hidden="true">→</span></a>
-          <p class="contact__status"><span class="dot" aria-hidden="true"></span>Disponible para nuevos proyectos</p>
+        <h2>¿Tenés sistemas que no se hablan entre sí?</h2>
+        <p class="contact__lede">Contame qué necesitás y te respondo con una propuesta concreta.</p>
+
+        <div class="mail">
+          <a class="mail__link" href="mailto:mati.rodriguez1201@gmail.com">mati.rodriguez1201<wbr>@gmail.com</a>
+          <button class="mail__copy" type="button" id="copy" data-email="mati.rodriguez1201@gmail.com">Copiar email</button>
+          <span class="mail__toast" id="copy-status" role="status" aria-live="polite"></span>
         </div>
 
-        <ul class="channels">
-          <li class="channel">
-            <span class="channel__label">Email</span>
-            <a class="channel__value" href="mailto:mati.rodriguez1201@gmail.com">mati.rodriguez1201@gmail.com</a>
-            <button class="channel__copy" type="button" id="copy" data-email="mati.rodriguez1201@gmail.com" aria-label="Copiar email">Copiar</button>
-          </li>
-          <li class="channel">
-            <span class="channel__label">LinkedIn</span>
-            <a class="channel__value" href="https://www.linkedin.com/in/matirodriguez23/" target="_blank" rel="noopener">in/matirodriguez23</a>
-            <span class="channel__arrow" aria-hidden="true">↗</span>
-          </li>
-          <li class="channel">
-            <span class="channel__label">GitHub</span>
-            <a class="channel__value" href="https://github.com/MatiasRodriguez21" target="_blank" rel="noopener">MatiasRodriguez21</a>
-            <span class="channel__arrow" aria-hidden="true">↗</span>
-          </li>
-          <li class="channel">
-            <span class="channel__label">CV</span>
-            <a class="channel__value" href="Rodriguez_Matias_CV.pdf" target="_blank" rel="noopener">Descargar PDF</a>
-            <span class="channel__arrow" aria-hidden="true">↓</span>
-          </li>
-          <li class="channel">
-            <span class="channel__label">Ubicación</span>
-            <span class="channel__value">Córdoba, Argentina</span>
-          </li>
-        </ul>
+        <div class="contact__foot">
+          <ul class="links">
+            <li><a class="link" href="https://www.linkedin.com/in/matirodriguez23/" target="_blank" rel="noopener"><span class="link__logo link__logo--in" aria-hidden="true"></span>LinkedIn<span class="link__arrow" aria-hidden="true">↗</span></a></li>
+            <li><a class="link" href="https://github.com/MatiasRodriguez21" target="_blank" rel="noopener"><span class="link__logo link__logo--gh" aria-hidden="true"></span>GitHub<span class="link__arrow" aria-hidden="true">↗</span></a></li>
+            <li><a class="link" href="Rodriguez_Matias_CV.pdf" target="_blank" rel="noopener">Descargar CV<span class="link__arrow" aria-hidden="true">↓</span></a></li>
+          </ul>
+          <p class="contact__status"><span class="dot" aria-hidden="true"></span>Disponible para nuevos proyectos. Córdoba, Argentina.</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="foot wrap">
     <span>© 2026 Matías Rodríguez</span>
-    <span>Dibujado en HTML, CSS y JS</span>
-    <span>Hoja 1 de 1</span>
   </footer>
 
-  <script src="main.js?v=20261007124142"></script>
+  <script src="main.js?v=20261007183000"></script>
 </body>
 </html>

@@ -61,16 +61,16 @@
 
   // ---------- Esquema del hero ----------
   // Dos columnas: canales de venta a la izquierda, operación a la derecha, el negocio al centro.
-  var VW = 500, CX = 250, CY = 132, R = 50, W = 150, H = 46, GAP = 16;
+  var VW = 500, CX = 250, CY = 146, R = 54, W = 154, H = 52, GAP = 10;
   var NODES = [
-    { id: 'tienda', side: 'l', label: 'Tienda online', icon: 'store' },
-    { id: 'market', side: 'l', label: 'Marketplaces', icon: 'bag' },
-    { id: 'pagos', side: 'l', label: 'Pagos', icon: 'card' },
-    { id: 'ia', side: 'l', label: 'IA', icon: 'spark' },
-    { id: 'erp', side: 'r', label: 'ERP', icon: 'server' },
-    { id: 'deposito', side: 'r', label: 'Depósito', icon: 'box' },
-    { id: 'datos', side: 'r', label: 'Datos', icon: 'chart' },
-    { id: 'apps', side: 'r', label: 'Apps', icon: 'phone' }
+    { id: 'tienda', side: 'l', label: 'Tienda online', sub: 'pedidos · stock', icon: 'store' },
+    { id: 'market', side: 'l', label: 'Marketplaces', sub: 'Mercado Libre', icon: 'bag' },
+    { id: 'pagos', side: 'l', label: 'Pagos', sub: 'Mercado Pago', icon: 'card' },
+    { id: 'ia', side: 'l', label: 'IA', sub: 'agentes · chat', icon: 'spark' },
+    { id: 'erp', side: 'r', label: 'ERP', sub: 'facturación', icon: 'server' },
+    { id: 'deposito', side: 'r', label: 'Depósito', sub: 'stock · envíos', icon: 'box' },
+    { id: 'datos', side: 'r', label: 'Datos', sub: 'reportes', icon: 'chart' },
+    { id: 'apps', side: 'r', label: 'Apps', sub: 'web · móvil', icon: 'phone' }
   ];
   var EVENTS = [
     ['tienda', 'erp', 'Pedido nuevo', 'ERP'],
@@ -88,8 +88,12 @@
 
   var svg = document.getElementById('hub-svg');
   var rows = 4, top = CY - (rows * H + (rows - 1) * GAP) / 2;
-  var VH = CY * 2;
+  var VH = CY * 2 - 8;
   svg.setAttribute('viewBox', '0 0 ' + VW + ' ' + VH);
+
+  // Encabezados de columna
+  el('text', { x: 10, y: top - 9, 'class': 'h-col' }, svg).textContent = 'DONDE VENDÉS';
+  el('text', { x: VW - 10, y: top - 9, 'class': 'h-col h-col--r' }, svg).textContent = 'CÓMO OPERÁS';
 
   // Anillos de construcción alrededor del centro
   el('circle', { cx: CX, cy: CY, r: R + 16, 'class': 'c-orbit' }, svg);
@@ -117,22 +121,28 @@
     }, spokes);
     n.len = n.path.getTotalLength();
     n.path.style.setProperty('--len', n.len);
+    // Flujo continuo y suave sobre cada conexión
+    n.flow = el('path', { d: n.path.getAttribute('d'), 'class': 'flow' + (n.side === 'r' ? ' flow--r' : ''), style: '--i:' + k }, spokes);
     byId[n.id] = n;
   });
 
   var packets = el('g', {}, svg);
 
   var core = el('g', { 'class': 'core' }, svg);
+  el('circle', { cx: CX, cy: CY, r: R, 'class': 'c-pulse' }, core);
   el('circle', { cx: CX, cy: CY, r: R, 'class': 'c1' }, core);
   el('circle', { cx: CX, cy: CY, r: R - 7, 'class': 'c2' }, core);
-  el('text', { x: CX, y: CY + 5 }, core).textContent = 'Tu negocio';
+  el('text', { x: CX, y: CY + 1 }, core).textContent = 'Tu negocio';
+  el('text', { x: CX, y: CY + 17, 'class': 'sub' }, core).textContent = 'sincronizado';
 
   NODES.forEach(function (n, k) {
     var g = el('g', { 'class': 'hn', style: '--i:' + k, transform: 'translate(' + n.left + ' ' + (n.cy - H / 2) + ')' }, svg);
     el('rect', { width: W, height: H, rx: 10 }, g);
-    var ic = el('g', { transform: 'translate(14 13) scale(0.84)' }, g);
+    el('rect', { x: 10, y: 11, width: 30, height: 30, rx: 8, 'class': 'ic-tile' }, g);
+    var ic = el('g', { transform: 'translate(15 16) scale(0.84)' }, g);
     el('path', { d: ICONS[n.icon], 'class': 'ic' }, ic);
-    el('text', { x: 46, y: 28 }, g).textContent = n.label;
+    el('text', { x: 50, y: 24 }, g).textContent = n.label;
+    el('text', { x: 50, y: 39, 'class': 'sub' }, g).textContent = n.sub;
     // Puerto donde entra la conexión
     el('circle', { cx: n.side === 'l' ? W : 0, cy: H / 2, r: 3, 'class': 'port' }, g);
     n.g = g;
@@ -174,10 +184,11 @@
     }, 200);
   }
 
-  var running = false;
+  var running = false, clearTimer = null;
   function run(ev) {
     if (running) return; // un recorrido a la vez
     running = true;
+    clearTimeout(clearTimer);
     var a = byId[ev[0]], b = byId[ev[1]];
     // Limpiar restos del recorrido anterior
     NODES.forEach(function (n) { n.g.classList.remove('is-from', 'is-to', 'is-arrive'); n.path.classList.remove('is-on'); });
@@ -199,6 +210,11 @@
     });
     // Seguro por si el navegador frena los cuadros
     setTimeout(function () { running = false; }, 3200);
+    // Apagar el origen y el destino un par de segundos después de la llegada
+    clearTimer = setTimeout(function () {
+      a.g.classList.remove('is-from');
+      b.g.classList.remove('is-to');
+    }, 2200 + 1200);
   }
   function randomEvent(from) {
     var pool = from ? EVENTS.filter(function (e) { return e[0] === from; }) : EVENTS;
@@ -240,7 +256,31 @@
     var stopAll = function () { timers.forEach(function (t) { clearInterval(t); clearTimeout(t); }); timers = []; };
     setTimeout(function () { run(randomEvent(WORDS[0][1])); startAll(); }, 1800);
     document.addEventListener('visibilitychange', function () { document.hidden ? stopAll() : startAll(); });
+    // Mientras el cursor está sobre el esquema, la rotación automática espera
+    svg.addEventListener('pointerenter', stopAll);
+    svg.addEventListener('pointerleave', function () { if (!document.hidden) startAll(); });
   }
+
+  // Pasar el cursor por una caja resalta su conexión; un clic dispara un evento desde ahí
+  NODES.forEach(function (n) {
+    n.g.addEventListener('pointerenter', function () {
+      svg.classList.add('is-hovering');
+      n.g.classList.add('is-hover');
+      n.path.classList.add('is-hover');
+      var ev = randomEvent(n.id);
+      say(ev[2], ev[3]);
+      n.preview = ev;
+    });
+    n.g.addEventListener('pointerleave', function () {
+      svg.classList.remove('is-hovering');
+      n.g.classList.remove('is-hover');
+      n.path.classList.remove('is-hover');
+    });
+    n.g.addEventListener('click', function () {
+      run(n.preview && n.preview[0] === n.id ? n.preview : randomEvent(n.id));
+      n.preview = null;
+    });
+  });
 
   // ---------- Servicios: selector con panel (rota solo) ----------
   var svcTabs = document.getElementById('svc-tabs');
@@ -355,13 +395,150 @@
     reveal.forEach(function (n) { n.classList.add('is-in'); });
   }
 
+  // ---------- Tecnologías: cuántos proyectos usan cada una ----------
+  var cards = [].slice.call(document.querySelectorAll('.det, .mini'));
+  var groups = [].slice.call(document.querySelectorAll('.details, .minis'));
+  // Cómo aparece cada tecnología dentro del texto de los proyectos
+  var ALIAS = { 'Google BigQuery': 'BigQuery', 'APIs REST y SOAP': 'SOAP', 'Claude Code': 'Claude' };
+  var activeTag = null;
+  function clearMatches() {
+    if (activeTag) { activeTag.classList.remove('is-on'); activeTag.setAttribute('aria-pressed', 'false'); }
+    activeTag = null;
+    groups.forEach(function (g) { g.classList.remove('is-filtering'); });
+    cards.forEach(function (c) { c.classList.remove('is-match'); });
+  }
+  document.querySelectorAll('.tlist .tags li').forEach(function (li) {
+    var name = li.textContent.trim();
+    var key = (ALIAS[name] || name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var re = new RegExp('(^|[^\\wÀ-ÿ])' + key + '($|[^\\wÀ-ÿ])');
+    var matches = cards.filter(function (c) { return re.test(c.textContent); });
+    if (!matches.length) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tag';
+    btn.setAttribute('aria-pressed', 'false');
+    btn.setAttribute('aria-label', name + ', usada en ' + matches.length + (matches.length === 1 ? ' proyecto' : ' proyectos'));
+    btn.textContent = name;
+    var n = document.createElement('span');
+    n.className = 'tag__n';
+    n.setAttribute('aria-hidden', 'true');
+    n.textContent = matches.length;
+    btn.appendChild(n);
+    li.textContent = '';
+    li.appendChild(btn);
+    btn.addEventListener('click', function () {
+      var same = activeTag === btn;
+      clearMatches();
+      if (same) return;
+      activeTag = btn;
+      btn.classList.add('is-on');
+      btn.setAttribute('aria-pressed', 'true');
+      matches.forEach(function (c) { c.classList.add('is-match'); });
+      groups.forEach(function (g) { if (g.querySelector('.is-match')) g.classList.add('is-filtering'); });
+      matches[0].scrollIntoView({ block: 'center' });
+    });
+  });
+  // Al salir de Proyectos o con Escape, todo vuelve a la normalidad
+  var projects = document.getElementById('proyectos');
+  if (projects && 'IntersectionObserver' in window) {
+    var seen = false;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { seen = true; return; }
+        if (seen && activeTag) { clearMatches(); seen = false; }
+      });
+    }).observe(projects);
+  }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && activeTag) clearMatches(); });
+
+  // ---------- Cursor: luz que sigue al mouse ----------
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (finePointer && !reduceMotion) {
+    // Luz sobre la grilla de puntos del fondo
+    var glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    glow.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(glow);
+    var gx = 0, gy = 0, glowFrame = 0;
+    window.addEventListener('pointermove', function (e) {
+      gx = e.clientX; gy = e.clientY;
+      if (glowFrame) return;
+      glowFrame = requestAnimationFrame(function () {
+        glowFrame = 0;
+        glow.style.setProperty('--gx', gx + 'px');
+        glow.style.setProperty('--gy', gy + 'px');
+        glow.classList.add('is-on');
+      });
+    }, { passive: true });
+    document.documentElement.addEventListener('pointerleave', function () { glow.classList.remove('is-on'); });
+    // Mantener sus puntos alineados con la grilla del fondo al scrollear
+    var alignGlow = function () { glow.style.backgroundPosition = (-window.scrollX) + 'px ' + (-window.scrollY) + 'px'; };
+    window.addEventListener('scroll', alignGlow, { passive: true });
+    alignGlow();
+
+    // Reflejo dentro de las tarjetas
+    document.querySelectorAll('.det, .mini, .edu__list li, .fig').forEach(function (card) {
+      card.classList.add('spot');
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    // Botones principales: leve atracción hacia el cursor
+    document.querySelectorAll('.btn--solid, .top__cta').forEach(function (b) {
+      b.classList.add('magnet');
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var dx = (e.clientX - r.left - r.width / 2) / r.width;
+        var dy = (e.clientY - r.top - r.height / 2) / r.height;
+        b.style.translate = (dx * 6).toFixed(1) + 'px ' + (dy * 5).toFixed(1) + 'px';
+      });
+      b.addEventListener('pointerleave', function () { b.style.translate = ''; });
+    });
+  }
+
   // ---------- Copiar email ----------
   var copy = document.getElementById('copy');
+  var copyStatus = document.getElementById('copy-status');
+  var copyTimer = null;
+  function copyFeedback(label, message, ok) {
+    clearTimeout(copyTimer);
+    copy.textContent = label;
+    copy.classList.toggle('is-done', ok);
+    copyStatus.textContent = message;
+    copyTimer = setTimeout(function () {
+      copy.textContent = 'Copiar email';
+      copy.classList.remove('is-done');
+      copyStatus.textContent = '';
+    }, ok ? 1800 : 3200);
+  }
+  // Si el navegador no deja copiar, se selecciona el email para copiarlo a mano
+  function copyFallback(text) {
+    var area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    var done = false;
+    try { done = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(area);
+    if (done) return copyFeedback('Copiado', 'Email copiado al portapapeles', true);
+    var range = document.createRange();
+    range.selectNodeContents(document.querySelector('.mail__link'));
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    copyFeedback('Seleccionado, usá Ctrl+C', 'No se pudo copiar automáticamente. El email quedó seleccionado.', false);
+  }
   copy.addEventListener('click', function () {
-    if (!navigator.clipboard) return;
-    navigator.clipboard.writeText(copy.getAttribute('data-email')).then(function () {
-      copy.textContent = 'Copiado ✓';
-      setTimeout(function () { copy.textContent = 'Copiar'; }, 1600);
-    }, function () {});
+    var text = copy.getAttribute('data-email');
+    if (!navigator.clipboard) return copyFallback(text);
+    navigator.clipboard.writeText(text).then(function () {
+      copyFeedback('Copiado', 'Email copiado al portapapeles', true);
+    }, function () { copyFallback(text); });
   });
 })();
